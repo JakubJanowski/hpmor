@@ -1,0 +1,83 @@
+# This manually started workflow builds PDFs and eBooks and creates a new release with these assets.
+name: "Create Release"
+
+on:
+  workflow_dispatch: # manual triggering
+    inputs:
+      version_number:
+        description: "Version number"
+        required: true
+        default: "v1.2.12"
+      version_text:
+        description: "Description"
+        required: true
+        default: ""
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+
+    steps:
+      # - name: test print
+      #   run: |
+      #     echo "version_number: ${{ github.event.inputs.version_number }}"
+      #     echo "version_number: ${{ github.event.inputs.version_text }}"
+
+      # steps are copied from make.yml
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1 # 0 if you want to push to repo
+
+      - name: Touch requirements.txt for pip caching
+        run: touch requirements.txt
+
+      - name: Cache LaTeX files
+        uses: actions/cache@v4
+        with:
+          path: |
+            chapters/*.aux
+            hpmor*.aux
+            hpmor*.fdb_latexmk
+            hpmor*.fls
+            hpmor*.out
+            hpmor*.pdf
+            hpmor*.toc
+            hpmor*.xdv
+          key: tex-cache
+
+      - name: Python set up
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Check chapters for known issues
+        run: python3 scripts/check_chapters.py
+
+      - name: Check pre-commit tests
+        uses: pre-commit/action@v3.0.1
+
+      - name: Install requirements
+        run: sh scripts/install_requirements.sh > /dev/null
+
+      - name: Make PDFs
+        run: sh scripts/make_pdfs.sh > /dev/null
+
+      - name: Make eBooks
+        run: sh scripts/make_ebooks.sh
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "${{ inputs.version_number }}"
+          body: "${{ inputs.version_text }}"
+          prerelease: false
+          files: |
+            ./hpmor*.pdf
+            ./hpmor.html
+            ./hpmor.epub
+            ./hpmor.mobi
+            ./hpmor.fb2

@@ -1,0 +1,103 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{layout/hp-book}
+
+% Options
+\gdef\hplrmargins{1.5}
+\DeclareOption{pdf}{\gdef\hplrmargins{1}}
+\newif\ifcover\covertrue
+\DeclareOption{nocover}{\coverfalse}
+\ProcessOptions % process now as some are used immediately
+
+\documentclass[12pt,extrafontsizes,twoside,openright,final,msmallroyalvopaper]{memoir}
+
+\input{layout/hp-header}
+
+
+% Book-specific settings
+
+%
+% Set up page
+% FIXME: Improve the layout: margins not perhaps as wide as the default, but
+% wider than currently. (The type block is currently the same as for the previous, larger paper.)
+%
+\settypeblocksize{\topskip + 34\baselineskip}{352pt}{*}
+\setlrmargins{*}{*}{\hplrmargins}
+\setulmargins{*}{*}{1}
+\setheadfoot{\topskip +  \baselineskip}{2\baselineskip}
+\checkandfixthelayout[fixed]
+
+
+%
+% Page header
+%
+\usepackage{graphicx} % for \reflectbox
+\makeevenhead{headings}{\Stars}{
+	\hpfont\hyperref[contents]{\textls[50]{\rightmark}}}{\reflectbox{\Stars}}
+\makeoddhead{headings}{\Stars}{\parbox{97mm}{\centering\hpfont\textls[50]{\leftmark}}}{\reflectbox{\Stars}}
+\renewcommand*{\sectionmark}[1]{}
+
+
+%
+% Page numbering/footer
+%
+\def\pageInFooter{\Star\ \hpfont\makebox[4em][c]{\textls[30]{\thepage}}\Star}
+\makeevenfoot{plain}{}{\pageInFooter}{}
+\makeoddfoot{plain}{}{\pageInFooter}{}
+\makeevenfoot{headings}{}{\pageInFooter}{}
+\makeoddfoot{headings}{}{\pageInFooter}{}
+
+
+%
+% Custom chapter style
+%
+\makeatletter
+\makechapterstyle{evans}{%
+	\renewcommand*{\partnamefont}{\hpfont\huge}
+	\renewcommand*{\partnumfont}{\partnamefont}
+	\renewcommand*{\parttitlefont}{\hpfont\Huge}
+	\renewcommand*{\chapnamefont}{\hpfont\large}
+	\renewcommand*{\chapnumfont}{\chapnamefont}
+	\renewcommand*{\chaptitlefont}{\hpfont\huge}
+
+	\setlength{\beforechapskip}{4\baselineskip plus 2\baselineskip minus 2\baselineskip }
+	\setlength{\midchapskip}{0pt}
+	\setlength{\afterchapskip}{1\baselineskip}
+
+	\renewcommand*{\printchapternum}{%
+		\chapnumfont \hyperref[contents]{\textls[30]{
+\IfInteger{\thechapter}{\NUMBERstring{chapter}}{\thechapter}
+}}}
+
+	\renewcommand*{\printchaptername}{%
+		\centering \chapnamefont \hyperref[contents]{\MakeUppercase{\textls[30]{\@chapapp}}}
+	}
+
+	\renewcommand*{\printchaptertitle}[1]{%
+		\vskip 0pt\begin{center}\chaptitlefont \textls[50]{\MakeUppercase{##1}}\end{center}\par
+	}
+
+	\renewcommand*{\chaptermark}[1]{
+		\markboth{
+                  \MakeUppercase{##1}
+                }{
+		  \MakeUppercase{\chaptername}~
+                    \thechapter
+                }
+        }
+
+	\renewcommand*{\tocmark}{\markboth{}{\MakeUppercase{Contents}}}
+	\renewcommand{\tocheadstart}{\chapterheadstart}
+	\renewcommand{\aftertoctitle}{\thispagestyle{empty}\afterchaptertitle}
+}
+\makeatother
+\chapterstyle{evans}
+
+\def\chapterheadstart{\vspace*{-1\baselineskip}\vspace*{-1\topskip}\vspace*{\beforechapskip}}
+
+%
+% Section
+%
+\setsecheadstyle{\scshape}
+\beforesecskip=1.5\baselineskip %        skip before the heading
+\aftersecskip=.5\baselineskip plus .5\baselineskip %         skip after the heading
+\setsechook{\nopagebreak\vskip 0pt plus 3\baselineskip\setsecnumformat{}}

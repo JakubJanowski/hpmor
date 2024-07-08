@@ -253,7 +253,7 @@ def fix_common_typos(s: str) -> str:
         # s = s.replace("das einzige", "das Einzige")
     # Apostroph
     # "word's"
-    s = re.sub(r"(\w)'(s)\b", r"\1’\2", s)
+    #s = re.sub(r"(\w)'(s)\b", r"\1’\2", s)
     if settings["lang"] == "DE":
         s = re.sub(r"(\w)'(sche|scher|schen)\b", r"\1’\2", s)
     if settings["lang"] == "EN":
@@ -277,11 +277,11 @@ def fix_quotations(s: str) -> str:  # noqa: C901, PLR0912, PLR0915
         s = re.sub(r'"([^"]+)"', r"„\1“", s)
 
     # '...' -> ‘...’
-    if "nglui mglw" not in s:
-        if settings["lang"] == "EN":
-            s = re.sub(r"'([^']+)'", r"‘\1’", s)
-        if settings["lang"] == "DE":
-            s = re.sub(r"'([^']+)'", r"‚\1‘", s)
+    # if "nglui mglw" not in s:
+    #     if settings["lang"] == "EN":
+    #         s = re.sub(r"'([^']+)'", r"‘\1’", s)
+    #     if settings["lang"] == "DE":
+    #         s = re.sub(r"'([^']+)'", r"‚\1‘", s)
 
     if settings["lang"] == "DE":
         # fix bad single word quotes

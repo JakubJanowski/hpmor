@@ -23,35 +23,35 @@ of the chapters.
 
 ## Files
 
-* `hpmor.tex` - the main file
-* `layout/hp-format.tex` - mostly sets up memoir
-* `layout/hp-markup.tex` - logical markup commands used in the text
-* `chapters/` - one file per chapter, included from `hpmor.tex` and the
+- `hpmor.tex` - the main file
+- `layout/hp-format.tex` - mostly sets up memoir
+- `layout/hp-markup.tex` - logical markup commands used in the text
+- `chapters/` - one file per chapter, included from `hpmor.tex` and the
   individual volumes `hpmor-N.tex`.
-* `spelling-list.txt` - a list of words used to spell-check the book.
-* `fonts/` - various fonts used
-* `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
-* `GNUMakefile` - contains targets to make a Zip of the PDFs and release
+- `spelling-list.txt` - a list of words used to spell-check the book.
+- `fonts/` - various fonts used
+- `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
+- `GNUMakefile` - contains targets to make a Zip of the PDFs and release
   them to GitHub. (Mostly of interest to project maintainers.) `make all`
   does the same as `latexmk` (see below), which may be useful for editor
   integration (e.g. Emacs).
-* `scripts/ebook/` - e-book generation scripts
+- `scripts/ebook/` - e-book generation scripts
 
 ## Building the book(s)
 
 If you do not want to install all requirements on your native system, you can run the build in a Docker container instead. See bottom of [Dockerfile](Dockerfile) for further info.
 
-* `latexmk`: Build all PDFs. (If in doubt, just run this command and do
+- `latexmk`: Build all PDFs. (If in doubt, just run this command and do
   something else for twenty minutes!)
-* `make all`: Build a Zip of the PDFs.
-* `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
-* `latexmk hpmor-N`: Build one of the six individual volumes
+- `make all`: Build a Zip of the PDFs.
+- `latexmk hpmor`: Build the one-volume PDF `hpmor.pdf`
+- `latexmk hpmor-N`: Build one of the six individual volumes
   `hpmor-1.pdf` to `hpmor-6.pdf`.
-* `latexmk layout/hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
+- `latexmk layout/hpmor-dust-jacket-N`: produce the dust jacket for Volume N,
   `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding
   volume, `hpmor-N.pdf`, to have been built first.
-* `latexmk -c`: Remove files produced by building (except PDFs).
-* `latexmk -C`: Remove files produced by building (including PDFs).
+- `latexmk -c`: Remove files produced by building (except PDFs).
+- `latexmk -C`: Remove files produced by building (including PDFs).
 
 By default, the dust jackets assume 80gsm plain paper (this affects the
 thickness of the book and hence the size of the dust jacket). This can be
@@ -103,7 +103,7 @@ Contributions are most welcome. These fall into the following categories:
    [next section](#translations).
 
 For textual changes other than simple typo or language fixes, please
-familiarise yourself with the style guide (below).
+familiarize yourself with the style guide (below).
 
 The preferred way to submit any improvement is as a GitHub pull request.
 Textual corrections can also be submitted as issues in the issue tracker, or
@@ -189,8 +189,8 @@ It is recommended to use `polyglossia` (not `babel`).
 Note: there are other translations of HPMOR; here are listed only
 translations of this edition.
 
-* [French](https://github.com/yeKcim/hpmor) (complete)
-* [German](https://github.com/entorb/hpmor-de) (complete)
+- [French](https://github.com/yeKcim/hpmor) (complete)
+- [German](https://github.com/entorb/hpmor-de) (complete)
 
 <!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk GNUMakefile 80gsm '
  -->

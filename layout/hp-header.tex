@@ -33,3 +33,9 @@ Se-ve-rus Mc-Gon-agall Dum-ble-do-re Quir-rell Mal-foy}
   \setcounter{hpletterspacing}{#1 / \real{10.0}}%
   \addfontfeature{LetterSpace=\thehpletterspacing}#2%
 }
+
+% Makes an inscription in small caps (first used, Gringotts)
+\newenvironment{inscription}{%\parindent=1cm%
+	\vskip 1\baselineskip plus .5\baselineskip minus .5\baselineskip%
+	\begin{adjustwidth}{4\parindent}{\parindent}\scshape}
+	{\end{adjustwidth}\vskip 1\baselineskip plus .5\baselineskip minus .5\baselineskip}

@@ -167,8 +167,10 @@
 
 % Stars and breaks
 
-% Single “magic star” decoration
-\newcommand{\Star}{{\fontspec[ExternalLocation]{Miscelanea.ttf}*}}
+% Font used to draw the magic star
+\newfontface\starfont[ExternalLocation]{Miscelanea.ttf}
+% Draws a single “magic star” decoration
+\newcommand*{\Star}{{\starfont{}*}}
 
 % Three “magic stars” decoration
 \def\Stars{{\large\Star\kern-.6ex\lower1.3ex\hbox{\large\Star}\kern-.1ex\raise.2ex\hbox{\tiny\Star}\spacefactor1000}}

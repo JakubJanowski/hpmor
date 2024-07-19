@@ -248,7 +248,6 @@ def fix_common_typos(s: str) -> str:
         s = s.replace("Muggelforscher", "Muggelwissenschaftler")
         s = s.replace("Stupefy", "Stupor")
         s = s.replace("Wizengamot", "Zaubergamot")
-        s = s.replace("S.P.H.E.W.", r"\SPHEW")
         s = s.replace("ut mir Leid", "ut mir leid")
         # s = s.replace("das einzige", "das Einzige")
     # Apostroph

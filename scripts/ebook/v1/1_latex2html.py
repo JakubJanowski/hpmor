@@ -420,8 +420,6 @@ def tex2html(s: str) -> str:
     # simple commands without parameters
     # \am and pm
     s = re.sub(r"\\([ap])m\b", r"&nbsp;\1.m.", s, flags=re.DOTALL | re.IGNORECASE)
-    # \SPHEW
-    s = s.replace("\\SPHEW", "\\abbrev{SPHEW}")
 
     # simple commands with 1 parameter not containing other commands
     # custum spans

@@ -184,7 +184,6 @@ Remembrall
 Goyle's
 Protego
 Apparated
-unforgiveable
 Cruciatus
 Crucioed
 Fawkes's
@@ -567,7 +566,6 @@ Monroe's
 Reducto
 spell's
 hedonic
-hols
 Glowpox
 Critch's
 hedonics

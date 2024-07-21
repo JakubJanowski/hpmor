@@ -96,7 +96,7 @@ McGonagall's
 Minerva's
 Moke
 mokeskin
-mudblood
+Mudblood
 Muggle
 Muggleborn
 Muggleborns
@@ -196,7 +196,7 @@ hm
 Amycus
 Carrow
 Pensieve
-mudbloods
+Mudbloods
 purebloods
 clingings
 whoever'd
@@ -252,7 +252,7 @@ Waals
 Patronus
 Sybill
 Voldemort's
-horcrux
+Horcrux
 Alissa
 Cornfoot's
 Alissa's
@@ -262,7 +262,7 @@ Pettigrew's
 Animagi
 Veritas
 Oculum
-portkey
+Portkey
 dodgeball
 Leanne
 Everto
@@ -377,7 +377,7 @@ Black's
 Lestranges
 Auror's
 blockable
-portkeys
+Portkeys
 Confund
 Scrimgeour
 Shacklebolt
@@ -395,7 +395,7 @@ substanceless
 unbreakability
 Maximus
 Bartemy
-portkey's
+Portkey's
 Fiendfyre
 Albus's
 Flamel
@@ -500,7 +500,7 @@ unfocusing
 DMLE
 bint
 Densaugeo
-mudblood's
+Mudblood's
 scriptum
 offs
 Komodo
@@ -620,13 +620,13 @@ Nullus
 confundio
 Legilimize
 synchronies
-horcruxes
+Horcruxes
 tripsigns
 Hermione
 Inflammare
 boggart's
-horcruxed
-portkeying
+Horcruxed
+Portkeying
 Cadmus's
 Metamorphmagi
 Yaga's
@@ -660,7 +660,7 @@ Grindie
 Grindie's
 foretellings
 Pettigrew
-portkeyed
+Portkeyed
 healings
 Voldemorts
 strangelets

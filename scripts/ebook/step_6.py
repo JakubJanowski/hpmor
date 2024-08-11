@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # fix spaces around ellipsis
     cont = fix_ellipsis(cont)
 
-    # doc structure (not needed any more, using calibi --level1-toc flag instead)
+    # doc structure (not needed anymore, using calibi --level1-toc flag instead)
     # sed -i 's/<h1 /<h1 class="part"/g' $target_file
     # sed -i 's/<h2 /<h2 class="chapter"/g' $target_file
     # sed -i 's/<h3 /<h3 class="section"/g' $target_file

@@ -21,7 +21,7 @@ ebook-convert $source_file $target_file --language en-US --no-default-epub-cover
 
 source_file="hpmor.epub"
 echo ==== 7.2 calibre: epub -\> mobi ====
-# note: fonts are not included for some strange reason, so not using special fonts for headlines, writtenNotes and McGonagallWhiteBoard any more in html.css
+# note: fonts are not included for some strange reason, so not using special fonts for headlines, writtenNotes and McGonagallWhiteBoard anymore in html.css
 target_file="hpmor.mobi"
 ebook-convert $source_file $target_file
 

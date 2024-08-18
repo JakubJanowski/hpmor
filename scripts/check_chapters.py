@@ -220,8 +220,8 @@ def fix_linebreaks_speach(s: str) -> str:
 
 def fix_MrMrs(s: str) -> str:  # noqa: N802
     # Mr / Mrs
-    s = s.replace("Mr. H. Potter", "Mr~H.~Potter")
-    # s = s.replace("Mr. Potter", "Mr~Potter")
+    s = s.replace("Mr. H. Potter", "Mr.~H.~Potter")
+    # s = s.replace("Mr. Potter", "Mr.~Potter")
     if settings["lang"] == "DE":
         s = re.sub(r"\b(Mr|Mrs|Miss|Dr)\b\.?\s+(?!”)", r"\1~", s)
     # Dr.~ -> Dr~Potter etc.

@@ -158,19 +158,19 @@ for lang in ["EN", "DE"]:
     # fix_MrMrs
     #
     pairs = [
-        ("Mr. H. Potter", "Mr~H.~Potter"),
+        ("Mr. H. Potter", "Mr.~H.~Potter"),
         ("it’s Doctor now, not Miss.", "it’s Doctor now, not Miss."),
     ]
     if lang == "DE":
         pairs.extend(
             [
-                ("Mr. Potter", "Mr~Potter"),
+                ("Mr. Potter", "Mr.~Potter"),
                 ("Mrs. Potter", "Mrs~Potter"),
                 ("Miss. Potter", "Miss~Potter"),
                 ("Dr. Potter", "Dr~Potter"),
                 ("Dr Potter", "Dr~Potter"),
-                ("Mr Potter", "Mr~Potter"),
-                ("Mr. and Mrs. Davis", "Mr~and Mrs~Davis"),
+                ("Mr Potter", "Mr.~Potter"),
+                ("Mr. and Mrs. Davis", "Mr.~and Mrs~Davis"),
             ]
         )
     test_it(fix_MrMrs, pairs)

@@ -90,14 +90,22 @@
 \setlength{\partopsep}{.5\baselineskip plus 1\baselineskip minus .5\baselineskip}
 
 % Miscellaneous global typesetting parameters
-\frenchspacing
-\setlength{\emergencystretch}{.06\textwidth}
+\frenchspacing % Make spacing after all punctuation the same as the spacing between words
+\raggedbottom
+\linespread{1.125}
+
+% Prefer underfull to overfull lines
+\tolerance=260 % Allow more horizontal spacing between words, default = 200
+\hbadness=5000 % When compiling, only reports underfull lines with badness > 4000
+\hfuzz=0.35pt
+\setlength{\emergencystretch}{2em} % Maximum allowed space width on an already overfull line
+%\overfullrule=10mm % Mark overfull lines in generated PDF with 10mm black rectangles (for debugging only)
 
 % Try to avoid excessive hyphens
-\doublehyphendemerits=30000
+\doublehyphendemerits=30000 % Avoids hyphenation on consecutive lines
 \finalhyphendemerits=30000
 \adjdemerits=10000
-\brokenpenalty10000\relax
+\brokenpenalty=10000 % for a page break, where the last line of the previous page contains a hyphenation.
 
 % Make it easier to manage hyphenation
 \makeatletter
@@ -106,9 +114,8 @@
 \makeatother
 
 % Avoid widows and orphans
-% https://mailman.ntg.nl/pipermail/ntg-context/2013/074250.html
-\widowpenalty 10000
-\clubpenalty 10000
+\clubpenalty=10000 % Avoids first line of paragraph on previous page
+\widowpenalty=10000 % Avoids last line of paragraph on next page
 
 % Various packages used
 \usepackage[normalem]{ulem}

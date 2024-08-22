@@ -136,7 +136,7 @@
 			\texorpdfstring{%
 				#3, \abbrev{part #4}: #5}{% TOC entry
 				#3, part #4: #5}][% Bookmark for PDF
-			\mbox{#2 #4:} \mbox{#5}]{% Page header
+      {\makebox[97mm]{#2 #4:}} \mbox{#5}]{% Page header, this makebox somehow centers any overfull lines without warning in the 97mm parbox on odd page headings
 			#2, Part~#4:\protect\linebreak[1] #5#1}% First page of the chapter
 }
 

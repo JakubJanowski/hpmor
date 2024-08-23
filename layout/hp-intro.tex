@@ -1,21 +1,4 @@
 \input{layout/hp-title}
-\ifcover%
-\newpagecolor{black}\afterpage{\restorepagecolor}
-\newcommand\BackgroundPic{
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vfill%
-\centering%
-\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{images/cover0.jpg}%
-\vfill%
-}}}\AddToShipoutPicture*{\BackgroundPic}%
-\AddToShipoutPicture*{\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\hptitle{\fullvolumetitle{\volumenumber}}%
-}}}%
-\ %
-\cleartorecto
-\fi
 \begin{center}
 \thispagestyle{empty}
 {\hpfont

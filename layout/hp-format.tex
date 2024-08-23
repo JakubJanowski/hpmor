@@ -98,7 +98,7 @@
 \tolerance=260 % Allow more horizontal spacing between words, default = 200
 \hbadness=5000 % When compiling, only reports underfull lines with badness > 4000
 \hfuzz=0.35pt
-\setlength{\emergencystretch}{2em} % Maximum allowed space width on an already overfull line
+\setlength{\emergencystretch}{2.125em} % Maximum allowed space width on an already overfull line
 %\overfullrule=10mm % Mark overfull lines in generated PDF with 10mm black rectangles (for debugging only)
 
 % Try to avoid excessive hyphens
@@ -106,12 +106,6 @@
 \finalhyphendemerits=30000
 \adjdemerits=10000
 \brokenpenalty=10000 % for a page break, where the last line of the previous page contains a hyphenation.
-
-% Make it easier to manage hyphenation
-\makeatletter
-\newcommand{\emdashhyp}{\leavevmode%
-\prw@zbreak---\discretionary{}{}{}\prw@zbreak}
-\makeatother
 
 % Avoid widows and orphans
 \clubpenalty=10000 % Avoids first line of paragraph on previous page
@@ -125,5 +119,5 @@
 \usepackage[nopagecolor=white,pagecolor=white]{pagecolor}
 \usepackage{afterpage}
 \usepackage{gitinfo2}
-\usepackage{hyphenat}
+\usepackage[shortcuts]{extdash}
 \usepackage{comment}

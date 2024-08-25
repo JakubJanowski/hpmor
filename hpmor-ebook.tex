@@ -1,22 +1,16 @@
-\RequirePackage[pdf]{layout/hp-book}
+\RequirePackage{layout/hp-book}
 
 \begin{document}
 
-\input{layout/hp-format}
-\input{layout/hp-markup}
+\def\volumenumber{}
+\def\volumetitle{chapters 1--120 plus omake files 1--{4}}
+\newcommand{\fullvolumetitle}{\volumetitle}
 
 \input{layout/hp-intro}
 
 \renewenvironment{headlines}{}{}
 \renewenvironment{writtenNote}{}{}
 \renewenvironment{playdialog}{}{}
-
-\newcommand{\writtenNoteA}[1]{\par\textcolor{writtenNote}{#1}}
-\renewcommand{\parsel}[1]{\textcolor{parsel}{#1}}
-\renewcommand{\McGonagallWhiteBoard}[1]{\textcolor{McGonagallWhiteBoard}{\par#1}}
-\renewcommand{\headline}[1]{\begin{center}\textcolor{headline}{#1}\end{center}}
-\renewcommand{\inlineheadline}[1]{\textcolor{headline}{#1}}
-\renewcommand{\newspaperHeader}[1]{#1}
 
 \include{chapters/hpmor-chapter-000}
 \part{Harry James Potter-Evans-Verres and the Methods of Rationality}

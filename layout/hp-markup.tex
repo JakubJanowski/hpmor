@@ -148,7 +148,7 @@
 % FIXME: Make the environment definition switchable with a flag
 % \newenvironment{chapterOpeningAuthorNote}{%
 % \par\noindent%
-% E.~Y.:~
+% E.\?Y.:~
 % }
 % {%
 % \newline\rule[1ex]{\textwidth}{.1pt}\newline%
@@ -194,3 +194,6 @@
 
 % Minus for negative numbers (Unicode character)
 \newcommand{\minus}{−}
+
+% Non-breaking space that allows hyphenation of the next word. Taken from https://tex.stackexchange.com/a/319257
+\newcommand\?{\,\nobreak\hspace{0pt}}

@@ -11,7 +11,9 @@ The source for this version was originally taken from https://github.com/rrthoma
 - Spellcheck and standardization
   - Fixed typos
   - Removed early Britpicks for consistent usage throughout
-  - Removed Omake files and epigraphs from individual volumes
+  - Removed Omake files from individual volumes
+  - Epigraphs opening chapters
+  - Removed author's notes from chapter openings
   - Standardization of formats for dates and times
   - Consistent capitalization of various words
   - Minor improvements to italics, lists, notes, and headlines
@@ -48,7 +50,7 @@ The source for this version was originally taken from https://github.com/rrthoma
 
 TeXLive 2015 or later and git are required to build the book. (Note: the book must be built from a git checkout.)
 
-Note: the Omake Files chapters (11 and 64) have been moved to the end of the single-file PDF. Those chapter numbers are omitted in the text, so chapter ,10 is followed by chapter 12, for example. In the six-volume PDFs, all chapters are renumbered to start from 1 at the start of a book, and there are no appendices. Some epigraphs have been omitted but are in the source files of the chapters.
+The Omake Files chapters (11 and 64) have been moved to the end of the single-file PDF. Those chapter numbers are omitted in the text, so chapter 10 is followed by chapter 12, for example. In the six-volume PDFs, all chapters are renumbered to start from 1 at the start of a book, and there are no appendices. Author's notes have been omitted but are still present in the source files of the chapters.
 
 ### Extra packages required
 
@@ -58,7 +60,7 @@ Note: the Omake Files chapters (11 and 64) have been moved to the end of the sin
 
 - `latexmk -xelatex`: Build all PDFs. (If in doubt, just run this command and do something else for twenty minutes!).
 - `latexmk -xelatex hpmor`: Build the one-volume PDF `hpmor.pdf`.
-- `latexmk -xelatex hpmor-ebook`: Build the ebook PDF `hpmor-ebook.pdf`.
+- `latexmk -xelatex hpmor-ebook`: Build the e-book PDF `hpmor-ebook.pdf`.
 - `latexmk -xelatex hpmor-N`: Build one of the six individual volumes `hpmor-1.pdf` to `hpmor-6.pdf`.
 - `latexmk -xelatex layout/hpmor-dust-jacket-N`: produce the dust jacket for Volume N, `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding volume, `hpmor-N.pdf`, to have been built first.
 - `latexmk -c`: Remove files produced by building (except PDFs).

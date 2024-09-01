@@ -1,0 +1,25 @@
+\begin{center}
+\vspace*{2.0cm}
+{
+	\newcounter{BooksListCounter}
+	\def \hpbook #1{
+		\addtocounter{BooksListCounter}{1}
+		\ifnum\value{BooksListCounter}=\volumenumber%
+			\textbf{\textit{Book \arabic{BooksListCounter}: Harry James Potter-Evans-Verres and the #1}}
+		\else
+			\textit{Book \arabic{BooksListCounter}: Harry James Potter-Evans-Verres and the #1}
+		\fi
+		\vspace{0.25cm}
+
+		\smallskip\par
+	}
+
+	\hpbook{Letter from Hogwarts}
+	\hpbook{Legion of Chaos}
+	\hpbook{Shadows of Death}
+	\hpbook{Call of the Phoenix}
+	\hpbook{Last Enemy}
+	\hpbook{Mirror's Stone}
+}
+\end{center}
+

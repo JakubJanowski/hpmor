@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{layout/hp-book}
 
-\documentclass[12pt,extrafontsizes,twoside,openright,final,msmallroyalvopaper]{memoir}
+\documentclass[11pt,extrafontsizes,twoside,openright,final,a5paper]{memoir}
 
 \input{layout/hp-header}
 
@@ -10,13 +10,12 @@
 
 %
 % Set up page
-% FIXME: Improve the layout: margins not perhaps as wide as the default, but
-% wider than currently. (The type block is currently the same as for the previous, larger paper.)
+% A5 page is 210mm by 148mm
 %
-\settypeblocksize{\topskip + 34\baselineskip}{352pt}{*}
-\setlrmargins{*}{*}{1.5}
-\setulmargins{*}{*}{1}
-\setheadfoot{\topskip +  \baselineskip}{2\baselineskip}
+\settypeblocksize{169.5mm}{109.5mm}{*} % fit 65-70 charactes in line and 31 lines on page
+\setlrmargins{20mm}{*}{*} % 20mm for binding; leaves 18.5mm space for thumbs on outer margin
+\setulmargins{*}{*}{0.8}
+\setheadfoot{\topskip + \baselineskip}{2\baselineskip} % baselineskip = 15.3pt = 5.37795mm, topskip = 11pt = 3.8665mm
 \checkandfixthelayout[fixed]
 
 

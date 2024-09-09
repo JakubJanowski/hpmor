@@ -21,11 +21,11 @@ The source for this version was originally taken from https://github.com/rrthoma
   - Separate .tex file for each chapter
   - Formatting and macros in common header
 - Outputs six PDF files for printing the story in six volumes
-  - Page size 9in. by 6in.
+  - A5 page size
   - Bookmarks and unobtrusive links with hyperref
   - Automatic chapter numbering restarts in each subbook with ToC
 - Careful typography
-  - Text set in 12-point Alegreya, chapter headings set in Lumos
+  - Text set in 11-point Alegreya, chapter headings set in Lumos
   - American English hyphenation rules
   - Large initial capitals at the start of each chapter with lettrine
   - Microtype protrusion

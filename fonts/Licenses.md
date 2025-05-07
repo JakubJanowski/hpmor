@@ -2,13 +2,13 @@
 
 There follow author license details for all the fonts supplied. Where available, a web page is given.
 
+## AA Lumos
+
+Freeware by Sarah McFalls; see `AA Lumos/LICENSE.txt`.
+
 ## Alegreya
 
 By Juan Pablo del Peral, distributed under the SIL Open Font License 1.1; see `alegreya/SIL Open Font License.txt`.
-
-## Alegreya Sans
-
-By Juan Pablo del Paral, distributed under the SIL Open Font License 1.1; see `AlegreyaSans/LICENSE.md`.
 
 ## Architects Daughter
 
@@ -18,9 +18,17 @@ By Kimberley Gesweln, distributed under the SIL Open Font License 1.1; see `arch
 
 Free font by Nyek! Pinoy Komek Fonts; see `Florante/Nyek! License.txt`.
 
+## Graphe
+
+By Heracles Papatheodorou, distributed under the SIL Open Font License; see https://heracl.es/graphe/
+
+## Harry P
+
+Free font for personal and commercial uses by Graham Meade; see https://www.dafont.com/harry-p.font.
+
 ## Lumos
 
-Freeware by Sarah McFalls; see `lumos/readme.txt`. The web page listed there is now at: http://www.geocities.ws/carpesaponem/lumos.htm
+Freeware by Sarah McFalls; see `lumos/readme.txt`. The web page listed there is now at: https://www.geocities.ws/carpesaponem/lumos.htm
 
 ## Miscelanea
 
@@ -40,4 +48,4 @@ Freeware by Neale Davidson. Redistribution not allowed without written consent; 
 
 ## Twilight
 
-Freeware by sheslikeadream; see http://www.fonts2u.com/twilight.font
+Freeware by sheslikeadream; see https://www.fonts2u.com/twilight.font

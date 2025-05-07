@@ -1,6 +1,6 @@
 # Harry Potter and the Methods Of Rationality
 
-This is a XeLaTeX version of [the popular didactic fan-fiction](http://www.hpmor.com) by Eliezer Yudkowsky, which can make e-books, and six volumes in PDF that can be printed and bound. There are also dust jackets for the printable volumes.
+This is a XeLaTeX version of [the popular didactic fan-fiction](https://www.hpmor.com) by Eliezer Yudkowsky, which can make e-books, and six volumes in PDF that can be printed and bound. There are also dust jackets for the printable volumes.
 
 See [latest release](https://github.com/JakubJanowski/hpmor/releases/latest) for PDF downloads.
 

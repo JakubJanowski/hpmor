@@ -188,3 +188,9 @@
 
 % Non-breaking space that allows hyphenation of the next word. Taken from https://tex.stackexchange.com/a/319257
 \newcommand\?{\,\nobreak\hspace{0pt}}
+
+% Seperate paragraphs by vspace, not indent
+\newenvironment{parsepskip}{
+  \parindent=0pt
+  \parskip=1em
+}{}

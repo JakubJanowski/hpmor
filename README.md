@@ -1,29 +1,19 @@
-# Harry Potter and the Methods Of Rationality
+# Harry Potter and the Methods of Rationality
 
-This is a XeLaTeX version of [the popular didactic fan-fiction](https://www.hpmor.com) by Eliezer Yudkowsky, which can make e-books, and six volumes in PDF that can be printed and bound. There are also dust jackets for the printable volumes.
+This is a XeLaTeX version of [the popular didactic fan-fiction](https://www.hpmor.com) by Eliezer Yudkowsky, which can make an e-book, and six volumes in PDF that can be printed and bound. There are also dust jackets for the printable volumes.
 
 See [latest release](https://github.com/JakubJanowski/hpmor/releases/latest) for PDF downloads.
 
-The source for this version was originally taken from https://github.com/rrthomas/hpmor, then changes from https://github.com/xenohedron/hpmor-xetex were applied on top of it to aggregate the improvements made by fans on independent versions of this fiction. This repository also includes my individual changes.
-
 ## Features
-- Includes an edited version of _Daystar's Remix of Rationality_ which improves the flow and tone of chapters 1-4
 - Spellcheck and standardization
   - Fixed typos
-  - Removed early Britpicks for consistent usage throughout
+  - Removed early Brit-picks for consistent usage throughout
   - Removed Omake files from individual volumes
   - Epigraphs opening chapters
   - Removed author's notes from chapter openings
   - Standardization of formats for dates and times
   - Consistent capitalization of various words
   - Minor improvements to italics, lists, notes, and headlines
-- LaTeX formatting code restructured, pruned, and somewhat commented
-  - Separate .tex file for each chapter
-  - Formatting and macros in common header
-- Outputs six PDF files for printing the story in six volumes
-  - A5 page size
-  - Bookmarks and unobtrusive links with hyperref
-  - Automatic chapter numbering restarts in each subbook with ToC
 - Careful typography
   - Text set in 11-point Alegreya, chapter headings set in Lumos
   - American English hyphenation rules
@@ -34,16 +24,24 @@ The source for this version was originally taken from https://github.com/rrthoma
   - Lumos font kerning 
   - Manual linebreaks in long chapter titles
   - Fancy headers, footers, and section breaks
+- Generated PDFs
+  - Outputs six PDF files for printing the story in six volumes
+  - A5 page size
+  - Bookmarks and unobtrusive links with hyperref
+  - Automatic chapter numbering restarts in each volume with ToC
+- Organized codebase 
+  - LaTeX formatting code and macros is separate files and somewhat commented
+  - Separate .tex file for each chapter
 
 ## Files
 
 - `hpmor.tex` - the main file.
-- `hpmor-ebook.tex` - the ebook file.
+- `hpmor-ebook.tex` - the e-book file.
 - `layout/hp-format.tex` - mostly sets up memoir.
 - `layout/hp-markup.tex` - logical markup commands used in the text.
-- `chapters/` - one file per chapter, included from `hpmor.tex` and the individual volumes `hpmor-N.tex`.
+- `chapters/*.tex` - one file per chapter, included from `hpmor.tex` and the individual volumes `hpmor-N.tex`.
 - `spelling-list.txt` - a list of words used to spell-check the book.
-- `fonts/` - various fonts used.
+- `fonts/*` - various fonts used.
 - `latexmkrc` - configures latexmk to run LaTeX to build the PDFs.
 
 ## Building the book(s)
@@ -58,19 +56,21 @@ The Omake Files chapters (11 and 64) have been moved to the end of the single-fi
 
 ### Build commands
 
-- `latexmk -xelatex`: Build all PDFs. (If in doubt, just run this command and do something else for twenty minutes!).
+- `latexmk -xelatex`: Build all PDFs. If in doubt, just run this command and do something else for twenty minutes!
 - `latexmk -xelatex hpmor`: Build the one-volume PDF `hpmor.pdf`.
 - `latexmk -xelatex hpmor-ebook`: Build the e-book PDF `hpmor-ebook.pdf`.
-- `latexmk -xelatex hpmor-N`: Build one of the six individual volumes `hpmor-1.pdf` to `hpmor-6.pdf`.
-- `latexmk -xelatex layout/hpmor-dust-jacket-N`: produce the dust jacket for Volume N, `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding volume, `hpmor-N.pdf`, to have been built first.
+- `latexmk -xelatex hpmor-N`: Build one of the six individual volumes `hpmor-1.pdf` to `hpmor-6.pdf` (replace N with a volume number).
+- `latexmk -xelatex layout/hpmor-dust-jacket-N`: produce the dust jacket for volume N, `hpmor-dust-jacket-N.pdf`. Note that this requires the corresponding volume, `hpmor-N.pdf`, to have been built first.
 - `latexmk -c`: Remove files produced by building (except PDFs).
 - `latexmk -C`: Remove files produced by building (including PDFs).
 
 By default, the dust jackets assume 80gsm plain paper (this affects the thickness of the book and hence the size of the dust jacket). This can be configured in `layout/hp-paper-type.tex`; see `layout/papers.tex` for a list of papers.
 
-The exact sizes of dust jackets may vary; the current parameters were taken from a commercial printer. They can be adjusted in `hp-dust-jacket.tex` as desired.
+The exact sizes of dust jackets may vary; the current parameters were taken from a commercial printer. They can be adjusted in `layout/hp-dust-jacket.tex` as desired.
 
-Note that the back dust-flap is left for you to add your own text; edit `layout/hp-dust-jacket.tex` and search for “PUT YOUR BACK DUST-FLAP TEXT HERE!”. Make sure you remove the percent sign `%` at the start of the line, or your text will not be printed. This is a safety feature to make sure that if you don’t change the text, the placeholder will not appear; instead, you’ll just get a blank back flap.
+Note that the back dust-flap is left for you to add your own text; edit `layout/hp-dust-jacket.tex` and search for “% PUT YOUR BACK DUST-FLAP TEXT HERE!”. Make sure to remove the percent sign `%` at the start of the line, or your text will not be printed. This is a safety feature to make sure that if you don’t change the text, the placeholder will not appear; instead, you’ll just get a blank back flap.
+
+A similar place for a dedication is left in each volume. Empty verso and recto pages are inserted before ToC. Look inside `layout/hp-intro.tex` for the “% PUT YOUR DEDICATION HERE!” line to write your own.
 
 To build a single chapter, from the `chapters` directory use the command:
 
@@ -79,6 +79,24 @@ To build a single chapter, from the `chapters` directory use the command:
 Similarly, to build a single appendix or other non-chapter section, from the top directory use the command:
 
 `latexmk -norc -e '$chapterfile="FILENAME"' -r latexmkrc -g FILENAME`
+
+## Credits
+
+Harry Potter and the Methods of Rationality was written by Eliezer Yudkowsky. Original text, including author's notes and audience discussion can be found at https://www.hpmor.com. The story was inspired by and utilized the setting and characters of the Harry Potter book series by J. K. Rowling.
+
+The LaTeX version was created by [Bogdan Butnaru](https://github.com/bogdanb/hpmor) and later revised by [Josh Larios and Reuben Thomas](https://github.com/rrthomas/hpmor) whose repository serves as the foundation for this version. Additional changes from the repositories of [Blaise Whitesell](https://github.com/xenohedron/hpmor-xetex) and [Atai Ambus](https://github.com/TheAllSeeing/hpmor) were then applied on top of it to consolidate the improvements made by fans on — originally based on up-to-date forks but now — divergent versions of this fiction. This repository also includes my own contributions.
+
+First four chapters are from [_Daystar's Remix of HPMOR_](http://www.fanfiction.net/s/9676374), which improves the flow and tone of the book's beginning to better match the rest of the story.
+ 
+The concept for the book covers and their artwork was taken from:
+- [Ian Storm Taylor](https://github.com/ianstormtaylor/hpmor) (colorscheme and numbering style),
+- [Lily Yao Lu](https://github.com/knuesel/hpmor#covers) (art on all back covers and front cover artwork of book 5),
+- [rkidd user on Tumblr](https://rkidd.tumblr.com/post/58419865638) (front cover artwork of book 2),
+- [Tkgd2007 user on Wikimedia](https://commons.wikimedia.org/wiki/File:Human_evolution.svg) (front cover artwork of book 3),
+- [YariAsari user on DeviantArt](https://www.deviantart.com/yariasari/art/Harry-Potter-and-the-Methods-of-Rationality-Cover-469954307) (back cover artwork of book 5),
+- [fellfr0mgrace user on X](https://x.com/fellfr0mgrace/status/940917751769579521) (front cover artwork of book 6)
+  
+  The front cover concept was inspired by user phaedrus2000 who [posted their own covers on Reddit](https://www.reddit.com/r/HPMOR/comments/70sug6/yet_another_set_of_printed_books/) and subsequently tweaked by user ForeChin99, who merged the above styles and [posted their version on Reddit](https://www.reddit.com/r/HPMOR/comments/hvlhkm/trying_to_make_my_own_book_covers_am_i_winning/). The covers were further polished by [Atai Ambus](https://github.com/TheAllSeeing/hpmor) and later by me.
 
 ## Contributing
 
@@ -104,7 +122,11 @@ Words that are standard English or part of the Harry Potter universe, or are oth
 
 Chapters that aren’t part of a continuing series look like this:
 
-`\chapter{The Fundamental Attribution Error}`
+`\chapter{A Day of Very Low Probability}`
+
+or like this, when manually broken into multiple lines:
+
+`\wrapchapter{The Fundamental}{Attribution Error}`
 
 Chapters that are part of a continuing series look like one of these:
 
@@ -114,25 +136,42 @@ Chapters that are part of a continuing series look like one of these:
 
 The first is pretty simple; it’s just the title of the chapter followed by which part it is.
 
-The second looks like the title of the chapter, then the abbreviation for the title of the chapter, then the part, then the title of the part.
+The second looks like the title of the chapter, then the abbreviation for the title of the chapter, then the part number, then the title of the part.
 
 ### First sentences
 
 Normally, a chapter starts like this:
 
-`\lettrine{P}{adma} Patil had finished`
+```Tex
+\lettrine{P}{adma} Patil had finished
+```
 
 That creates the large initial letter.
 
-If the first paragraph of the chapter is all italics, though, it looks like this:
+If the first paragraph of the chapter begins with italics, though, it looks like this:
 
-    \begin{em}\lettrine{T}{he} red jet of fire took Hannah full in the
-    [...]
-    blazing green spirals brought down their foe’s Shield Charm.\par\end{em}
+```Tex
+\lettrine{T}{\emph{he}} \emph{red jet of fire took Hannah full in the
+[...]
+blazing green spirals brought down their foe’s Shield Charm.}
+```
+
+In special cases, when the chapter begins with a quote, or when the first paragraph is too short to span at least two lines, the following syntax is used:
+
+```Tex
+\lettrinepara[ante=``]{C}{ome} in," said Professor McGonagall's muffled voice.
+
+\hplettrineextrapara
+Harry did so.
+```
 
 ### Sections
 
-`\section{Final Aftermath:}`
+`\later` - A standalone break
+
+`\section{Act 2}` - A section
+
+`\latersection{Final Aftermath}` - A break followed by a new section
 
 ### Miscellaneous
 
@@ -142,7 +181,4 @@ There are some other things relating to newspaper headlines and such; check the 
 
 These are macros defined in `layout/hp-markup.tex`. You should glance through that file to see what commands are available, and use them instead of direct markup; for example `\shout` rather than `\textsc`.
 
-<!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk 80gsm norc NNN chapterfile
- -->
-<!--  LocalWords:  Eeeehhhh partchapter namedpartchapter lettrine adma textsc
- -->
+<!--  LocalWords:  hpmor tex hp txt latexmkrc latexmk 80gsm norc NNN chapterfile Eeeehhhh wrapchapter partchapter namedpartchapter lettrine lettrinepara hplettrineextrapara adma textsc -->

@@ -151,7 +151,7 @@ That creates the large initial letter.
 If the first paragraph of the chapter begins with italics, though, it looks like this:
 
 ```Tex
-\lettrine{T}{\emph{he}} \emph{red jet of fire took Hannah full in the
+\lettrine{T}{\emph{he}}\emph{ red jet of fire took Hannah full in the
 [...]
 blazing green spirals brought down their foe’s Shield Charm.}
 ```
